@@ -8,4 +8,4 @@ function arrMax(e) {
   return max;
 }
 
-module.exports = arrMax();
+module.exports = arrMax;

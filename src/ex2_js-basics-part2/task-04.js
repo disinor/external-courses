@@ -12,4 +12,4 @@ function arrCheck(e) {
   return bool;
 }
 
-module.exports = arrCheck(arr);
+module.exports = arrCheck;

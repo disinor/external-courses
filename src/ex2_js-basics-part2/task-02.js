@@ -1,7 +1,7 @@
 function arrRecount(e) {
   e.forEach((element) => {
-    return element;
+    console.log(element)
   });
-  return e.length;
+ console.log(e.length)
 }
-module.exports = arrRecount();
+module.exports = arrRecount;
