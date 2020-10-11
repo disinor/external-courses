@@ -1,5 +1,8 @@
-function returnValueObj(prot, obj) {
-  return obj.__proto__[prot];
+function returnValueObj(prop, obj) {
+  if (obj.hasOwnProperty(prop)  ) {
+    return undefined;
+  } else {
+    return obj[prop];
+  }
 }
-
 module.exports = returnValueObj;
