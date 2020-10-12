@@ -1,12 +1,12 @@
 function Calculator() {
   this.presentValue = 0;
 
-  this.getResult = () => {
-    return this.presentValue;
-  };
-
   this.reset = () => {
     this.presentValue = 0;
+  };
+
+  this.getResult = () => {
+    return this.presentValue;
   };
 
   this.add = (a) => {
