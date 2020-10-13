@@ -1,25 +1,12 @@
 function strToLowerCamalCase(str) {
-  const arrStr = str.toLocaleLowerCase().split("");
+  const arrStr = str.toLocaleLowerCase().split(" ");
   const arrNewStr = [];
-  const arrStrLowerCamelCaseNotation = [];
 
   for (let i = 0; i < arrStr.length; i++) {
-    if (arrStr[i - 1] === " ") {
-      arrNewStr[i] = arrStr[i].toUpperCase();
-
-      continue;
-    }
-    arrNewStr[i] = arrStr[i];
+    arrNewStr[i] = arrStr[i][0].toUpperCase() + arrStr[i].slice(1);
   }
 
-  for (let i = 0; i < arrNewStr.length; i++) {
-    if (arrNewStr[i] === " ") continue;
-    arrStrLowerCamelCaseNotation[i] = arrNewStr[i];
-  }
-  return (
-    arrStrLowerCamelCaseNotation.join("")[0].toLocaleLowerCase() +
-    arrStrLowerCamelCaseNotation.join("").slice(1)
-  );
+  return arrNewStr[0].toLocaleLowerCase() + arrNewStr.slice(1).join("");
 }
 
 module.exports = strToLowerCamalCase;
