@@ -1,0 +1,7 @@
+.imgOne {
+  border-radius: 50%;
+}
+
+.imgTwo{
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}

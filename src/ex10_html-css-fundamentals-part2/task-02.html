@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task2</title>
+    <link rel="stylesheet" href="task2.css" />
+  </head>
+  <body>
+    <form action="http://httpbin.org/get" method="GET">
+      <fieldset>
+        <legend>Personal data</legend>
+        <div>
+          <label> Surname <input type="text" name="surname" required /> </label>
+        </div>
+
+        <div>
+          <label> First Name <input type="text" name="firstName" /> </label>
+        </div>
+
+        <div>
+          <label> First Name <input type="text" name="firstName" /> </label>
+        </div>
+
+        <div>
+          You are
+          <label><input type="radio" />male</label>
+          <label><input type="radio" />female</label>
+        </div>
+
+        <div>
+          <label> Age <input type="number" name="age"  min="18" max="101" /> </label>
+        </div>
+
+        <div>
+          <label>
+            Country of Residence
+            <select>
+              <option value="Russian Federation" selected>
+                Russian Federation
+              </option>
+              <option value="USA">USA</option>
+            </select>
+          </label>
+        </div>
+
+        <div>
+          City
+          <label><input type="checkbox" />Ryazan</label>
+          <label><input type="checkbox" />Moscow</label>
+        </div>
+
+        <div>
+          <input type="file" />
+        </div>
+        <div class="gorizontal-line"></div>
+
+        <div class="title">
+          Title
+          <select multiple>
+            <optgroup label="Technologies">
+              <option>Web Master</option>
+              <option>Database-administarator</option>
+              <option>Computer-aided design</option>
+            </optgroup>
+            <optgroup label="Finanse">
+              <option>Economic Planning</option>
+              <option>Managament accounthing</option>
+              <option>Budgeting and planning</option>
+            </optgroup>
+          </select>
+        </div>
+        <div>
+            Salary <input type="range" value="50%">
+        </div>
+        <div>
+            <textarea placeholder="Tell us about yourself..." rows="15"
+            cols="60"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contact Information</legend>
+        <div>
+          <label>Site <input type="url" /></label>
+        </div>
+        <div>
+          <label>Email <input type="email" /></label>
+        </div>
+        <div>
+          <label>Phone <input type="phone" /></label>
+        </div>
+      </fieldset>
+      <div>Password <input type="password"  required/></div>
+      <br>
+      <div>
+        <input type="submit" />
+        <input type="reset" />
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,18 @@
+
+fieldset > div {
+  margin-top: 10px;
+}
+fieldset{
+    margin-bottom: 10px;
+}
+div input[name="age"] {
+  width: 30px;
+}
+
+.gorizontal-line {
+  height: 1px;
+  background: black;
+}
+.title select {
+  height: 150px;
+}
