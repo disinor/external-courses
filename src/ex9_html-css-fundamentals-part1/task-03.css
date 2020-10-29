@@ -31,7 +31,7 @@
   );
 }
 
-.but-attachment p {
+.but-attachment span {
   text-transform: uppercase;
   align-self: center;
   font-family: "Roboto", sans-serif;
@@ -42,7 +42,7 @@
   z-index: 2;
 }
 
-.but-attachment p:after {
+.but-attachment span:after {
   position: absolute;
   font-size: 25px;
   content: "\2605";
@@ -51,7 +51,7 @@
   color: rgb(136, 136, 136);
 }
 
-.but-attachment p::before {
+.but-attachment span::before {
   position: absolute;
   font-size: 25px;
   content: "\2605";
@@ -59,3 +59,4 @@
   top: 5px;
   color: rgb(136, 136, 136);
 }
+
