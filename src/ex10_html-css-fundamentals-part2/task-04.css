@@ -40,6 +40,9 @@
     flex-direction: column;
     justify-content: space-around;
   }
+  .nav_flex_substrate{
+    flex-basis: 33.3%;
+  }
 
   .hamburger div {
     width: 25px;
@@ -54,6 +57,7 @@
   .container #nav_button:checked ~ table {
     display: block;
   }
+  
   .container .nav_flex .logo {
     display: block;
 
