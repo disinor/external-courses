@@ -1,11 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,700;1,600&display=swap");
 
+@media (max-width: 900px) {
+  .nav_flex table tr td {
+    display: flex;
+  }
+  .nav_flex table tr td:hover > div {
+    border-right: 8px solid #3c2efd;
+    border-bottom: 10px solid transparent;
+  }
+  .nav_flex form{
+    display: flex;
+    justify-content: center;
+    
+  }
+}
 * {
   box-sizing: border-box;
 }
 body {
   margin: 0;
   padding: 0;
+
 }
 
 a {
@@ -42,6 +57,8 @@ header {
   display: flex;
   min-width: 100px;
   justify-content: space-around;
+  
+  min-width: 170px;
 }
 
 .contact_phone {
@@ -71,19 +88,21 @@ header {
   position: absolute;
   text-align: center;
   padding: 10px;
-  width: 190px;
+  font-size: 15px;
+  width: calc(100% * 3);
+  min-width: 170px;
   height: 40px;
   border: 1px solid rgba(0, 0, 0, 0.149);
   border-radius: 10px;
-  top: -45px;
-  left: -60px;
+  top: -50px;
+  right: -100%;
 }
 
 .contact_location_place::before,
 .contact_location_place::after {
   content: "";
   position: absolute;
-  left: 80px;
+  left: 45%;
   bottom: -20px;
   border: 10px solid transparent;
   border-top: 10.5px solid rgba(0, 0, 0, 0.149);
@@ -127,17 +146,37 @@ nav {
   font-size: 13px;
   color: #6d6e71;
 }
+.nav_flex table tr {
+  position: relative;
+}
 
 .nav_flex table tr td {
   border-right: 1px solid black;
   border-spacing: 0;
+  position: relative;
+}
+.nav_flex table tr td div {
+  display: none;
+  position: absolute;
+
+  bottom: 0;
+  right: 30%;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-bottom: 8px solid #3c2efd;
+  transition: top 1s ease-out 0.5s;
+  z-index: -1;
+}
+.nav_flex table tr td:hover > div {
+  display: block;
 }
 
-.nav_flex table tr td a:hover{
-    color:#3c2efd;
-    opacity: 1;
+.nav_flex table tr td a:hover {
+  color: #3c2efd;
+  opacity: 1;
+  transition: top 1s ease-out 0.5s;
 }
-
 
 .nav_flex table tr td a {
   color: #000000;
@@ -154,129 +193,123 @@ nav {
   display: flex;
 }
 
-.nav_flex form label button{
-    border:none;
-    background: none;
+.nav_flex form label button {
+  border: none;
+  background: none;
 }
-.nav_flex form label button:active{
-    border:none;
-    background: none;
-}
-
-.nav_flex form label button:hover{
-    background-image:red
+.nav_flex form label button:active {
+  border: none;
+  background: none;
 }
 
-.main_heading{
-    background: url(img/iback.png) no-repeat;
-    background-size: 100%;
-    height:615px;
- 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    
+.nav_flex form label button:hover {
+  background-image: red;
 }
 
-.main_heading h1{
-    color:#FFFFFF;
-    font-family: OpenSans-Bold,OpenSans-Light,AdobeInvisFont,AdobeArabic-Regular;
-    font-size: 42px;
-    position: absolute;
-    top:90px;
-}
-.main_heading span{
-    font-family: OpenSans-Light,AdobeInvisFont,AdobeArabic-Regular;
-    font-size:32px;
-    color:#FFFFFF;
-    position: absolute;
-    top:180px;
+.main_heading {
+  background: url(img/iback.png) no-repeat;
+  background-size: 100%;
+  height: 615px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-
-.main_slider{
-    display: flex;
-    position: absolute;
-    bottom:120px;
-    right:110px;
+.main_heading h1 {
+  color: #dad8d8;
+  font-family: OpenSans-Bold, OpenSans-Light, AdobeInvisFont,
+    AdobeArabic-Regular;
+  font-size: 42px;
+  position: absolute;
+  top: 90px;
+}
+.main_heading span {
+  font-family: OpenSans-Light, AdobeInvisFont, AdobeArabic-Regular;
+  font-size: 32px;
+  color: #dad8d8;
+  position: absolute;
+  top: 180px;
 }
 
-.main_slider a img{
-    width:15vw
-}
-.main_slider_next{
-background: rgb(240, 239, 239);
-width:50px;
-height:100%;
-position: relative;
+.main_slider {
+  display: flex;
+  position: absolute;
+  bottom: 120px;
+  right: 110px;
 }
 
-
-.main_slider_next::before{
-    position: absolute;
-    content: '';
-    display: block;
-    width:0;
-    height:0;
-    border:7px solid transparent;
-    border-left:10px solid black;
-    left:15px;
-    top:50px;
-    
+.main_slider a img {
+  width: 15vw;
+}
+.main_slider_next {
+  background: rgb(240, 239, 239);
+  width: 50px;
+  height: 100%;
+  position: relative;
 }
 
-.main_slider_next::after{
-    position: absolute;
-    content: '';
-    display: block;
-    width:0;
-    height:0;
-    border:7px solid transparent;
-    border-left:6px solid rgb(240, 239, 239);
-    left:15px;
-    top:50px;
-}
-footer{
-    height: 500px;
-    display:flex;
-    justify-content: center;
-    padding-top:30px;
+.main_slider_next::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-left: 10px solid black;
+  left: 15px;
+  top: 50px;
 }
 
-.footer_container{
-
-flex-basis:70%;
-display: flex;
-justify-content: space-around;
+.main_slider_next::after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-left: 6px solid rgb(240, 239, 239);
+  left: 15px;
+  top: 50px;
+}
+footer {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
 }
 
-.footer_note{
-flex-basis:30%;
-display: flex;
-min-width: 200px;
-height: 50%;
-font-family: OpenSans-Light,AdobeInvisFont,AdobeArabic-Regular;
-}
-.footer_note img{
-    position: relative;
-    top:-10px;
-height: 25%;
-width: 20%;
-
-}
-.footer_note div{
-    width:100%;
-    font-size: 2vmin;
-    
+.footer_container {
+  flex-basis: 70%;
+  display: flex;
+  justify-content: space-around;
 }
 
-.footer_note_heading{
-    font-weight: bold;
-    opacity: 0.7;
-    margin-bottom: 10px;
+.footer_note {
+  flex-basis: 30%;
+  display: flex;
+  min-width: 200px;
+  height: 50%;
+  font-family: OpenSans-Light, AdobeInvisFont, AdobeArabic-Regular;
 }
-.footer_note_text{
-    opacity: 0.7;
+.footer_note img {
+  position: relative;
+  top: -10px;
+  height: 25%;
+  width: 20%;
+}
+.footer_note div {
+  width: 100%;
+  font-size: 2vmin;
+}
+
+.footer_note_heading {
+  font-weight: bold;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+.footer_note_text {
+  opacity: 0.7;
 }
