@@ -1,0 +1,64 @@
+.div-main {
+  background: mediumblue;
+  width: 500px;
+  height: 500px;
+  position: relative;
+}
+
+/* 1 способ */
+
+/* .div-main {
+    background: mediumblue;
+    width: 500px;
+    height: 500px;
+    box-shadow: 2px 2px 0 2px rgb(90, 90, 247), 
+    4px 4px 0 2px rgb(186, 84, 226),
+      6px 6px 0 2px rgb(253, 55, 227),
+      8px 8px 0 2px rgb(253, 55, 114);
+  }
+   */
+
+/* 2 Способ */
+
+/* .div-main::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: blueviolet;
+  bottom: -10px;
+  right: -10px;
+  z-index: -1;
+}
+
+.div-main::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgb(216, 35, 156);
+  bottom: -20px;
+  right: -20px;
+  z-index: -1;
+} */
+
+/* 3 способ */
+
+/* div div:nth-child(1){
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: blueviolet;
+      bottom:-10px;
+      right: -10px;
+      z-index: -1;
+  }
+  div div:nth-child(2){
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgb(221, 30, 212);
+      bottom:-20px;
+      right: -20px;
+      z-index: -2;
+  } */
