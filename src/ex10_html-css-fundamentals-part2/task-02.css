@@ -5,9 +5,7 @@ fieldset > div {
 fieldset{
     margin-bottom: 10px;
 }
-div input[name="age"] {
-  width: 30px;
-}
+
 
 .gorizontal-line {
   height: 1px;
