@@ -10,7 +10,7 @@
   background: rgba(255, 255, 255, 0.9);
   height: 100%;
   width: 100%;
-  display: block ;
+  display: block;
 }
 
 .preloader:after {
@@ -23,11 +23,90 @@
   margin-top: -15px;
   width: 30px;
   height: 30px;
-  border: 4px solid rgba(0, 0, 0, 0.25) ;
-  border-top: 4px  solid #1071b6;
+  border: 4px solid rgba(0, 0, 0, 0.25);
+  border-top: 4px solid #1071b6;
   border-radius: 50%;
 
   animation: preloader 0.6s infinite linear;
+}
+
+.ball_between_block {
+  width: 800px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+}
+.block1 {
+  width: 200px;
+  height: 100px;
+  background: blueviolet;
+}
+
+.block2 {
+  width: 200px;
+  height: 100px;
+  background: blueviolet;
+}
+
+.ball {
+  width: 100px;
+  height: 100px;
+  background: blueviolet;
+  border-radius: 50%;
+  transform: translateX(-150px);
+  animation-name: ball;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.animation_ball_to_sqare {
+  width: 200px;
+  height: 200px;
+  animation-name: ball_to_square;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  border-radius: 0%;
+ 
+  background: linear-gradient(rgb(255, 40, 40), rgb(13, 235, 39));
+
+}
+@keyframes ball_to_square {
+  0% {
+    background: linear-gradient(rgb(255, 40, 40), rgb(13, 235, 39));
+
+  }
+  15%{
+border-radius: 0%;
+  }
+  30%{
+    background: linear-gradient(rgb(228, 144, 19), rgb(22, 232, 127));
+  }
+  45%{
+    transform: skewX(20deg);
+    transform: scaleY(1.5);
+  }
+  
+  60%{
+      transform: rotate(360deg);
+  }
+  75%{
+    background:linear-gradient(rgb(236, 240, 20), rgb(13, 235, 224));
+  }
+  100%{
+      border-radius: 50%;
+      
+  }
+}
+@keyframes ball {
+  0% {
+  }
+  50% {
+    transform: translateX(150px);
+  }
+  100% {
+    transform: translateX(-150px);
+  }
 }
 
 @keyframes preloader {

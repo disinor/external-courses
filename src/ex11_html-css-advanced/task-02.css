@@ -1,0 +1,17 @@
+.field {
+  position: relative;
+  margin: 50px;
+}
+label {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  font-weight: 700;
+}
+input:invalid + label {
+  color: rgb(22, 18, 223);
+  font-family: sans-serif;
+  transform: translateY(-20px);
+  transition-duration: 0.5s;
+  opacity: 1;
+}
