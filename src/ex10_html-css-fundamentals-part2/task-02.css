@@ -1,0 +1,16 @@
+
+fieldset > div {
+  margin-top: 10px;
+}
+fieldset{
+    margin-bottom: 10px;
+}
+
+
+.gorizontal-line {
+  height: 1px;
+  background: black;
+}
+.title select {
+  height: 150px;
+}
