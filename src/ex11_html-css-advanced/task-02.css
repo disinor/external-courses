@@ -11,6 +11,16 @@ label {
   font-weight: 700;
   z-index: -1;
 }
+input{
+  border:none;
+  border-bottom: 1px solid gainsboro;
+}
+input:focus{
+  border:none;
+  border-bottom: 1px solid rgb(120, 118, 118);
+  outline: none;
+  background: rgba(224, 223, 223, 0.102);
+}
 input:invalid + label {
   color: rgb(22, 18, 223);
   font-family: sans-serif;
