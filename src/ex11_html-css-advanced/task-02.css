@@ -1,0 +1,30 @@
+.field {
+  position: relative;
+  margin: 50px;
+ 
+}
+
+label {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  font-weight: 700;
+  z-index: -1;
+}
+input{
+  border:none;
+  border-bottom: 1px solid gainsboro;
+}
+input:focus{
+  border:none;
+  border-bottom: 1px solid rgb(120, 118, 118);
+  outline: none;
+  background: rgba(224, 223, 223, 0.102);
+}
+input:invalid + label {
+  color: rgb(22, 18, 223);
+  font-family: sans-serif;
+  transform: translateY(-20px);
+  transition-duration: 0.5s;
+  opacity: 1;
+}
