@@ -21,14 +21,14 @@ leftButton.addEventListener("click", () => {
   rightImg.classList.remove("rightImage");
   rightImg.classList.add("leftImage");
 
-/*   leftImg.classList.add("leftImageToCenter");
+  /*   leftImg.classList.add("leftImageToCenter");
   centerImg.classList.add("centerImageToRight");
   rightImg.classList.add("rightImageToLeft"); */
 
   leftImg.classList.remove();
   centerImg.classList.remove();
   rightImg.classList.remove();
-  
+
   if (currentImg >= 6) {
     currentImg = 0;
   }
