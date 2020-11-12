@@ -9,7 +9,7 @@
 .button {
   width: 50px;
   background: rgba(8, 8, 194, 0.394);
-  height: 300px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,18 +32,17 @@
   z-index: -1;
 }
 .buttonLeft div {
-  transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 .buttonRight div {
-  transform: rotate(135deg);
+    transform: rotate(135deg);
 }
 .containerImg {
   width: 300px;
   position: relative;
-/*   overflow: hidden; */
+    overflow: hidden;
 }
-
 
 .myImage {
   width: 300px;
@@ -55,44 +54,58 @@
   background-size: contain !important;
 }
 .leftImage {
-  background :url(asset/img6.jpg);
+  background: url(asset/img1.jpg);
   transform: translateX(-100%);
+
 }
 
 .centerImage {
-  background :url(asset/img1.jpg);
+  background: url(asset/img2.jpg);
   transform: translateX(0%);
+
 }
 
 .rightImage {
-  background :url(asset/img2.jpg);
+  background: url(asset/img3.jpg);
   transform: translateX(100%);
-
+  
 }
 
-.leftImageToCenter{
-  animation:fromLeftToCenter 1s
+.myImage.leftImage.leftImageToCenter {
+  animation: fromLeftToCenter 4s;
 }
 
-.centerImageToRight{
-  animation:fromCenterToRight 1s
+.centerImageToRight {
+  animation: fromCenterToRight 4s;
 }
 
-.rightImageToLeft{
-  animation: fromRightToLeft 1s;
+.rightImageToLeft {
+  animation: fromRightToLeft 4s;
 }
 
-@keyframes fromLeftToCenter{
-  0%{transform: translateX(-100%);}
-  100%{transform: translateX(0%);}
+@keyframes fromLeftToCenter {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
-@keyframes fromCenterToRight{
-  0%{transform: translateX(-0%);}
-  100%{transform: translateX(100%);}
+@keyframes fromCenterToRight {
+  0% {
+    transform: translateX(-0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
-@keyframes fromRightToLeft{
-  0%{transform: translateX(-100%);}
-  100%{transform: translateX(0%);}
+@keyframes fromRightToLeft {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
