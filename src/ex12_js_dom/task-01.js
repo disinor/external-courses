@@ -1,5 +1,14 @@
 const rightButton = document.querySelector(".buttonRight");
 const leftButton = document.querySelector(".buttonLeft");
+const arrImg = [
+  `url(asset/img1.jpg)`,
+  `url(asset/img2.jpg)`,
+  `url(asset/img3.jpg)`,
+  `url(asset/img4.jpg)`,
+  `url(asset/img5.jpg)`,
+  `url(asset/img6.jpg)`,
+];
+let currentImg = 1;
 
 function positionImg() {
   const leftImg = document.querySelector(".leftImage");
@@ -8,49 +17,54 @@ function positionImg() {
 
   return { leftImg, centerImg, rightImg };
 }
-let currentImg = 2;
-leftButton.addEventListener("click", () => {
+
+const nextSlide = () => {
   const { leftImg, centerImg, rightImg } = positionImg();
 
-  leftImg.classList.remove("leftImage");
-  leftImg.classList.add("centerImage");
+  leftImg.classList.remove("leftImage", "imageToLeft");
+  rightImg.classList.remove("rightImage", "imageToLeft");
+  centerImg.classList.remove("centerImage", "imageToLeft");
 
-  centerImg.classList.remove("centerImage");
-  centerImg.classList.add("rightImage");
+  leftImg.classList.remove("leftImage", "imageToRight");
+  rightImg.classList.remove("rightImage", "imageToRight");
+  centerImg.classList.remove("centerImage", "imageToRight");
 
-  rightImg.classList.remove("rightImage");
-  rightImg.classList.add("leftImage");
+  leftImg.classList.add("centerImage", "imageToLeft");
+  rightImg.classList.add("leftImage", "imageToLeft");
+  centerImg.classList.add("rightImage", "imageToLeft");
 
-  /*   leftImg.classList.add("leftImageToCenter");
-  centerImg.classList.add("centerImageToRight");
-  rightImg.classList.add("rightImageToLeft"); */
-
-  leftImg.classList.remove();
-  centerImg.classList.remove();
-  rightImg.classList.remove();
-
-  if (currentImg >= 6) {
-    currentImg = 0;
+  if (currentImg >= 5) {
+    currentImg = -1;
+    rightImg.style.background = arrImg[5];
   }
   currentImg = currentImg + 1;
-  leftImg.style.background = `url(asset/img${currentImg}.jpg)`;
-});
+  rightImg.style.background = arrImg[currentImg - 1];
+  leftImg.style.background = arrImg[currentImg];
+};
 
-rightButton.addEventListener("click", () => {
+const prevSlide = () => {
   const { leftImg, centerImg, rightImg } = positionImg();
-  console.log(1);
-  leftImg.classList.remove("leftImage");
-  leftImg.classList.add("rightImage");
 
-  centerImg.classList.remove("centerImage");
-  centerImg.classList.add("leftImage");
+  leftImg.classList.remove("leftImage", "imageToRight");
+  rightImg.classList.remove("rightImage", "imageToRight");
+  centerImg.classList.remove("centerImage", "imageToRight");
 
-  rightImg.classList.remove("rightImage");
-  rightImg.classList.add("centerImage");
+  leftImg.classList.remove("leftImage", "imageToLeft");
+  rightImg.classList.remove("rightImage", "imageToLeft");
+  centerImg.classList.remove("centerImage", "imageToLeft");
 
-  if (currentImg <= 1) {
-    currentImg = 7;
+  leftImg.classList.add("rightImage", "imageToRight");
+  rightImg.classList.add("centerImage", "imageToRight");
+  centerImg.classList.add("leftImage", "imageToRight");
+
+  if (currentImg < 1) {
+    currentImg = 6;
+    leftImg.style.background = arrImg[0];
   }
   currentImg = currentImg - 1;
-  rightImg.style.background = `url(asset/img${currentImg}.jpg)`;
-});
+  leftImg.style.background = arrImg[currentImg + 1];
+  rightImg.style.background = arrImg[currentImg];
+};
+
+rightButton.addEventListener("click",prevSlide)
+leftButton.addEventListener("click",nextSlide)

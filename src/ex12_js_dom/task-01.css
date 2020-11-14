@@ -49,59 +49,105 @@
   height: 200px;
   border: 4px solid;
   position: absolute;
+  left: 0;
   background-repeat: no-repeat !important;
   background-size: contain !important;
 }
-.leftImage {
+.myImage.leftImage {
   background: url(asset/img1.jpg);
   transform: translateX(-100%);
 }
 
-.centerImage {
+.myImage.centerImage {
   background: url(asset/img2.jpg);
   transform: translateX(0%);
 }
 
-.rightImage {
+.myImage.rightImage {
   background: url(asset/img3.jpg);
   transform: translateX(100%);
 }
 
-.myImage.leftImage.leftImageToCenter {
-  animation: fromLeftToCenter 4s;
+.myImage.leftImage.imageToLeft {
+  animation: leftImageToLeftShift 1s;
 }
 
-.centerImageToRight {
-  animation: fromCenterToRight 4s;
+.myImage.leftImage.imageToRight {
+  animation: leftImageToRightShift 1s;
 }
 
-.rightImageToLeft {
-  animation: fromRightToLeft 4s;
+.myImage.rightImage.imageToLeft {
+  animation: rightImageToLeftShift 1s;
 }
 
-@keyframes fromLeftToCenter {
-  0% {
+.myImage.rightImage.imageToRight {
+  animation: rightImageToRightShift 1s;
+}
+
+.myImage.centerImage.imageToLeft {
+  animation: centralImageToLeftShift 1s;
+}
+
+.myImage.centerImage.imageToRight {
+  animation: centralImageToRightShift 1s;
+}
+
+@keyframes leftImageToLeftShift {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
     transform: translateX(-100%);
   }
-  100% {
-    transform: translateX(0%);
+}
+
+@keyframes leftImageToRightShift {
+  from {
+    transform: translateX(-200%);
+  }
+
+  to {
+    transform: translateX(-100%);
   }
 }
 
-@keyframes fromCenterToRight {
-  0% {
-    transform: translateX(-0%);
+@keyframes rightImageToLeftShift {
+  from {
+    transform: translateX(200%);
   }
-  100% {
+
+  to {
     transform: translateX(100%);
   }
 }
 
-@keyframes fromRightToLeft {
-  0% {
+@keyframes rightImageToRightShift {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
     transform: translateX(100%);
   }
-  100% {
+}
+
+@keyframes centralImageToLeftShift {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes centralImageToRightShift {
+  from {
     transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
   }
 }
