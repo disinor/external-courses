@@ -144,7 +144,7 @@ const createNewList = (title, text) => {
 
   const mainSectionFooterButSpan = document.createElement("span");
   mainSectionFooterButSpan.classList.add("main_section_footer_but_span");
-  mainSectionFooterButSpan.innerText = " + Add list";
+  mainSectionFooterButSpan.innerText = " + Add card";
   mainSectionFooterBut.append(mainSectionFooterButSpan);
 
   if (mainSection.classList.contains("backlog")) {

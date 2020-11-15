@@ -210,6 +210,9 @@ footer {
   font-family: roboto;
   font-size: 18px;
   line-height: 21px;
+  max-height: 900px;
+  min-width: 300px;
+  overflow-y: auto;
 }
 
 .main_section_header {
