@@ -220,14 +220,14 @@ const createNewList = (title, text) => {
       const storeBacklog = store.getData().backlog;
       let id = 0;
       storeBacklog.forEach(() => {
-        id += 1;
+        id = id + 1;
       });
       const newinputList = document.createElement('input');
       newinputList.setAttribute('type', 'text');
       newinputList.classList.add('input_list');
 
       if (mainSectionFooterBut.getAttribute('disabled')) {
-
+        
         return;
       }
 
@@ -256,7 +256,7 @@ const createNewList = (title, text) => {
     } else {
       mainSectionFooterBut.removeAttribute('disabled');
     }
-    
+
     mainSectionFooterBut.addEventListener('click', () => {
       transitionToTheList('backlog', 'ready');
     });
