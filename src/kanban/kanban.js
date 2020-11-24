@@ -23,7 +23,8 @@ const titleToCamelCaseNotation = (selectedRow) => {
 
   return str.join('');
 };
-
+newDiv.className = 'header2_arrow_settings';
+newDiv.append(newElementTagUl);
 function newElementTagA(num) {
   const element = document.createElement('a');
 
@@ -47,7 +48,8 @@ function newElementTagA(num) {
     default:
       return element;
   }
-
+  element.setAttribute('href','#')
+  
   return element;
 }
 
