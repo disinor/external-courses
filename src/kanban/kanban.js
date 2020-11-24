@@ -1,33 +1,69 @@
 const header2 = document.querySelector('.header2');
 const newDiv = document.createElement('div');
-const newUl = document.createElement('ul');
-const newLi1 = document.createElement('li');
-const newLi2 = document.createElement('li');
-const newLi3 = document.createElement('li');
-const newA1 = document.createElement('a');
-const newA2 = document.createElement('a');
-const newA3 = document.createElement('a');
+const newElementTagUl = document.createElement('ul');
 const dropDawn = document.querySelector('.header2 .header2_arrow_settings');
 const blockLogo = document.querySelector('.blockLogo');
 const arrow = document.querySelector('.arrow');
 const mainContainer = document.querySelector('.main_container');
 const localDataMock = JSON.parse(localStorage.getItem(LS_NAME_TASKS));
-const store = new Store(onblur);
+const store = new Store();
+
+const titleToCamelCaseNotation = (selectedRow) => {
+  const row = selectedRow;
+  let str = [];
+  for (let i = 0; i < row.length; i++) {
+    if (row[i] === ' ') {
+      row[i + 1] = row[i + 1].toUpperCase();
+
+      continue;
+    }
+    str[i] = row[i];
+    str[0] = str[0].toLowerCase();
+  }
+
+  return str.join('');
+};
+
+function newElementTagA(num) {
+  const element = document.createElement('a');
+
+  switch (num) {
+    case 1:
+      element.innerText = 'My tasks';
+      console.log(element);
+
+      break;
+
+    case 2:
+      element.innerText = 'My tasks';
+
+      break;
+
+    case 3:
+      element.innerText = 'My out';
+
+      break;
+
+    default:
+      return element;
+  }
+
+  return element;
+}
+
+function newElementTagLi(num) {
+  const elem = document.createElement('li');
+
+  elem.append(newElementTagA(num));
+
+  return elem;
+}
 
 newDiv.className = 'header2_arrow_settings';
-newDiv.append(newUl);
-
-newUl.append(newLi1);
-newLi1.append(newA1);
-newA1.innerText = 'My account';
-
-newUl.append(newLi2);
-newLi2.append(newA2);
-newA2.innerText = 'My tasks';
-
-newUl.append(newLi3);
-newLi3.append(newA3);
-newA3.innerText = 'Log out.';
+newDiv.append(newElementTagUl);
+newElementTagUl.append(newElementTagLi(1));
+newElementTagUl.append(newElementTagLi(2));
+newElementTagUl.append(newElementTagLi(3));
 
 arrow.dataset.activeArrow = 'false';
 
@@ -43,7 +79,7 @@ blockLogo.addEventListener('click', () => {
   }
 });
 
-function ObjList(id, name) {
+function newObjArrs(id, name) {
   this.id = id;
   this.name = name;
 }
@@ -52,7 +88,7 @@ function Store() {
   const data = localDataMock;
 
   this.add = (text, id, block) => {
-    const obj = new ObjList(id, text);
+    const obj = new newObjArrs(id, text);
     data[block].push(obj);
     const str = JSON.stringify(data);
     localStorage.setItem(LS_NAME_TASKS, str);
@@ -78,7 +114,7 @@ const addMainDivList = () => {
   return mainDiv;
 }; //создаю блок с 4 элементами бэклог реди и т.д.
 
-const newListItem = (text, id) => {
+const newListItem = (text) => {
   const sectionMainItems = document.createElement('div');
   sectionMainItems.classList.add('main_section_main_items');
   sectionMainItems.innerText = text;
@@ -88,15 +124,16 @@ const newListItem = (text, id) => {
 
 const newListSelect = (text, block, id, currentBlock, prevBlock) => {
   const mainDiv = block
-    .closest('.main_div ')
+    .closest('.main_div')
     .querySelector(`.${currentBlock.toLowerCase()}`);
-  block
-    .querySelector('.main_section_footer_but')
-    .setAttribute('disabled', 'disabled');
-
   const currentSectionMain = document.querySelector(
     `.${currentBlock.toLowerCase()} .main_section_main `
   );
+  const selectList = document.createElement('select');
+
+  block
+    .querySelector('.main_section_footer_but')
+    .setAttribute('disabled', 'disabled');
 
   if (block.querySelector('.addList')) {
     const selectList = block.querySelector('.addList');
@@ -107,11 +144,13 @@ const newListSelect = (text, block, id, currentBlock, prevBlock) => {
 
     return selectList;
   }
-  const selectList = document.createElement('select');
+
   selectList.classList.add('addList');
+
   selectList.addEventListener('blur', () => {
     const optionNum = block.querySelector('.addList').options.selectedIndex;
     const optionText = block.querySelector('.addList').options[optionNum].value;
+
     block
       .querySelector('.addList')
       .options[optionNum].setAttribute('disabled', 'disabled');
@@ -122,6 +161,9 @@ const newListSelect = (text, block, id, currentBlock, prevBlock) => {
 
   mainDiv.addEventListener('mouseleave', () => {
     if (document.querySelector('.addList')) {
+      block
+        .querySelector('.main_section_footer_but')
+        .removeAttribute('disabled');
       document.querySelector('.addList').remove();
     }
   });
@@ -148,8 +190,9 @@ const transitionToTheList = (prevBlock, currentBlock) => {
   }
 }; //переход из прередущего блока в следующий
 
-const createNewList = (title, text) => {
+function createNewList(title, text) {
   const mainSection = document.createElement('div');
+
   mainSection.classList.add(
     'main_section',
     title.toLowerCase().replace(/\s/g, '')
@@ -174,23 +217,8 @@ const createNewList = (title, text) => {
 
   const sectionMain = document.createElement('div');
 
-  if (title === 'Backlog' && text !== 'undefined') {
-    localDataMock.backlog.forEach((element) => {
-      sectionMain.append(newListItem(element.name, element.id));
-    });
-  }
-  if (title === 'Ready' && text !== 'undefined') {
-    localDataMock.ready.forEach((element) => {
-      sectionMain.append(newListItem(element.name, element.id));
-    });
-  }
-  if (title === 'In Progress' && text !== 'undefined') {
-    localDataMock.inProgress.forEach((element) => {
-      sectionMain.append(newListItem(element.name, element.id));
-    });
-  }
-  if (title === 'Finished' && text !== 'undefined') {
-    localDataMock.finished.forEach((element) => {
+  if (text !== 'undefined') {
+    localDataMock[titleToCamelCaseNotation(title)].forEach((element) => {
       sectionMain.append(newListItem(element.name, element.id));
     });
   }
@@ -227,7 +255,6 @@ const createNewList = (title, text) => {
       newinputList.classList.add('input_list');
 
       if (mainSectionFooterBut.getAttribute('disabled')) {
-        
         return;
       }
 
@@ -250,42 +277,49 @@ const createNewList = (title, text) => {
       newinputList.focus();
     });
   }
-  if (mainSection.classList.contains('ready')) {
-    if (localDataMock.backlog.length <= 1) {
+
+  if (
+    mainSection.classList.contains(
+      titleToCamelCaseNotation(title).toLowerCase()
+    ) &&
+    title !== 'Backlog'
+  ) {
+    let preventBlock = '';
+
+    switch (titleToCamelCaseNotation(title).toLowerCase()) {
+      case 'ready':
+        preventBlock = 'backlog';
+
+        break;
+
+      case 'inprogress':
+        preventBlock = 'ready';
+        break;
+
+      case 'finished':
+        preventBlock = 'inProgress';
+        break;
+
+      default:
+        return mainSection;
+    }
+
+    if (localDataMock[preventBlock].length <= 1) {
       mainSectionFooterBut.setAttribute('disabled', 'disabled');
     } else {
       mainSectionFooterBut.removeAttribute('disabled');
     }
 
     mainSectionFooterBut.addEventListener('click', () => {
-      transitionToTheList('backlog', 'ready');
-    });
-  }
-
-  if (mainSection.classList.contains('inprogress')) {
-    if (localDataMock.ready.length <= 1) {
-      mainSectionFooterBut.setAttribute('disabled', 'disabled');
-    } else {
-      mainSectionFooterBut.removeAttribute('disabled');
-    }
-
-    mainSectionFooterBut.addEventListener('click', () => {
-      transitionToTheList('ready', 'inProgress');
-    });
-  }
-
-  if (mainSection.classList.contains('finished')) {
-    if (localDataMock.inProgress.length <= 1) {
-      mainSectionFooterBut.setAttribute('disabled', 'disabled');
-    } else {
-      mainSectionFooterBut.removeAttribute('disabled');
-    }
-    mainSectionFooterBut.addEventListener('click', () => {
-      transitionToTheList('inProgress', 'finished');
+      console.log(titleToCamelCaseNotation(preventBlock));
+      transitionToTheList(
+        titleToCamelCaseNotation(preventBlock),
+        titleToCamelCaseNotation(title)
+      );
     });
   }
 
   return mainSection;
-}; //создаю блок со списком
+} //создаю блок со списком
 
 mainContainer.append(addMainDivList());
