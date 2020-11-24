@@ -49,7 +49,7 @@ function newElementTagA(num) {
       return element;
   }
   element.setAttribute('href','#')
-  
+
   return element;
 }
 
@@ -61,8 +61,7 @@ function newElementTagLi(num) {
   return elem;
 }
 
-newDiv.className = 'header2_arrow_settings';
-newDiv.append(newElementTagUl);
+
 newElementTagUl.append(newElementTagLi(1));
 newElementTagUl.append(newElementTagLi(2));
 newElementTagUl.append(newElementTagLi(3));
