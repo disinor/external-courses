@@ -33,7 +33,7 @@ function Hangman(string) {
 
           if (this.numberOfErrors === 0) {
             console.log('Game Over');
-            this.originalString = undefined;
+            this.originalString = null;
 
             return this;
           }

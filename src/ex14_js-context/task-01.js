@@ -4,7 +4,7 @@ function Calculator() {
   this.fetchData = async (callBack) => {
     const pr = new Promise((resolve) => {
       setTimeout(() => {
-        this.setState(500);
+        callBack(500);
         resolve();
       }, 500);
     });
@@ -54,7 +54,7 @@ function Calculator() {
 
       return this;
     }
-    
+
     this.presentValue = num;
 
     return this;
