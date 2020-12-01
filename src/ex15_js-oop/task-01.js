@@ -38,19 +38,18 @@ class Present {
       }
     }
 
-        for(let i =1;i<arrSweet.length;i++){
-            let current= arrSweet[i]
-            let replaceable =arrSweet[i-1]
-            if(current.weight>=replaceable.weight){
-              arrSweet[i-1]=current
-              arrSweet[i]=replaceable
-            }
-        }
+    for (let i = 1; i < arrSweet.length; i++) {
+      let current = arrSweet[i];
+      let replaceable = arrSweet[i - 1];
+      
+      if (current.weight >= replaceable.weight) {
+        arrSweet[i - 1] = current;
+        arrSweet[i] = replaceable;
+      }
+    }
 
-return arrSweet
+    return arrSweet;
   }
-
-
 
   search(name) {
     for (let key in this) {
@@ -62,4 +61,3 @@ return arrSweet
 }
 
 const test = new Present();
-
