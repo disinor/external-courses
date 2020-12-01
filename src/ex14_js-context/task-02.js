@@ -26,6 +26,7 @@ function Hangman(string) {
       }
 
       if (i === this.word.length - 1 && numWord > 0) {
+
         return this;
       }
 
@@ -54,6 +55,7 @@ function Hangman(string) {
   };
 
   this.getGuessedString = () => {
+    
     return this.word.join('');
   };
 
