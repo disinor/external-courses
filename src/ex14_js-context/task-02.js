@@ -5,17 +5,19 @@ function Hangman(string) {
   this.arrErrorsWord = [];
 
   this.transitionToLowerCase = () => {
-    for (let i = 0; i < this.originalString.length; i++) {
-      this.word[i] = '_';
-    }
+    this.originalString.split('').map((currentValue, index) => {
+      this.word[index] = '_';
+    });
 
     return this;
   };
 
   this.transitionToLowerCase();
+
   this.guess = (letter) => {
     let numWord = 0;
-    for (let i = 0; i < this.word.length; i++) {
+
+    this.word.map((val, i) => {
       if (this.originalString[i] === letter) {
         this.word[i] = letter;
 
@@ -46,9 +48,9 @@ function Hangman(string) {
           );
         }
       }
-    }
 
-    return this;
+      return this;
+    });
   };
 
   this.getGuessedString = () => {
