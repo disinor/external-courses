@@ -2,20 +2,13 @@ function Calculator() {
   this.presentValue = 0;
 
   this.fetchData = async (callBack) => {
-    const pr = new Promise((resolve) => {
-      setTimeout(() => {
-        callBack(500);
-        resolve();
-      }, 500);
-    });
-
-    await pr;
-
-    return this;
+    setTimeout(() => {
+      this.setState(500);
+      callBack(this.presentValue);
+    }, 500);
   };
 
   this.getResult = () => {
-
     return this.presentValue;
   };
 
@@ -51,7 +44,6 @@ function Calculator() {
 
   this.setState = (num) => {
     if (!num) {
-
       return this;
     }
 
@@ -64,3 +56,9 @@ function Calculator() {
 const calc = new Calculator();
 
 module.exports = calc;
+/*   const func = function(num) {
+  this.setState(num);
+  
+  return this
+  
+  }; */
