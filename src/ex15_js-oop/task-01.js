@@ -1,3 +1,4 @@
+const arrObjSweet = [];
 class Candy {
   constructor() {
     this.edible = true;
@@ -23,11 +24,17 @@ class Sweet extends Candy {
 
 class Present {
   constructor() {
-    this.weight = 2;
+    this.weightPresent = 0;
   }
 
   addSweet(name, weight, calorie) {
-    this[name] = new Sweet(name, weight, calorie);
+    this.weightPresent = 0;
+    arrObjSweet.push(new Sweet(name, weight, calorie));
+    arrObjSweet.forEach((e) => {
+      const name = e.name;
+      this.weightPresent += e.weight;
+      this[name] = e;
+    });
   }
 
   sorting() {
@@ -41,7 +48,7 @@ class Present {
     for (let i = 1; i < arrSweet.length; i++) {
       let current = arrSweet[i];
       let replaceable = arrSweet[i - 1];
-      
+
       if (current.weight >= replaceable.weight) {
         arrSweet[i - 1] = current;
         arrSweet[i] = replaceable;
@@ -60,4 +67,5 @@ class Present {
   }
 }
 
-const test = new Present();
+const present = new Present();
+
