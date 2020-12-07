@@ -2,10 +2,7 @@ function Calculator() {
   this.presentValue = 0;
 
   this.fetchData = async (callBack) => {
-    setTimeout(() => {
-      this.setState(500);
-      callBack(this.presentValue);
-    }, 500);
+    setTimeout(callBack.bind(this, 500), 500);
   };
 
   this.getResult = () => {
