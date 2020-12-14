@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kanban</title>
-    <link rel="stylesheet" href="kanban.css" />
   </head>
   <body>
     <header>
@@ -17,7 +16,7 @@
         <p>Awesome Kanban Board</p>
       </div>
       <div class="header2">
-        <div class="createList">
+        <button class="createList">
           <svg
             width="22"
             height="22"
@@ -30,8 +29,8 @@
               fill="black"
             />
           </svg>
-          <p>Create new list</p>
-        </div>
+          <span>Create new list</span>
+        </button>
         <div class="blockLogo">
           <div class="iconLogo">
             <svg
@@ -56,8 +55,8 @@
     </main>
     <footer>
       <div class="footer1">
-        <span>Active tasks: &lt; N &gt; &lt; /N &gt;</span>
-        <span>Finished tasks: &lt; M &gt; &lt; /M &gt;</span>
+        <span>Active tasks: <span class="activeTasks"></span></span>
+        <span>Finished tasks: <span class="finishedTask"></span></span>
       </div>
       <div class="footer2">
         <span
@@ -65,9 +64,5 @@
         >
       </div>
     </footer>
-    <script src="createNewList.js"></script>
-    <script src="back.js"></script>
-    <script src="dropdawn.js"></script>
-    <script src="kanban.js"></script>
   </body>
 </html>

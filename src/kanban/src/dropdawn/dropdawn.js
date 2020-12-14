@@ -28,7 +28,7 @@ function newElementTagA(num) {
     default:
       return element;
   }
-  
+
   element.setAttribute('href', '#');
 
   return element;
