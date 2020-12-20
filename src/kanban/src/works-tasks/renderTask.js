@@ -35,7 +35,6 @@ export function render() {
       .addEventListener('click', () => {
         if (newList.querySelector('.optionListTask')) {
           newList.querySelector('.optionListTask').remove();
-          
         } else {
           newList
             .querySelector('.main_section_header')
@@ -48,7 +47,6 @@ export function render() {
     document.querySelector('.activeTasks').innerText = sumActiveTask;
   }
 
-  finishedTask += store.storage[0].issues.length;
   finishedTask += store.storage[store.storage.length - 1].issues.length;
   document.querySelector('.finishedTask').innerText = finishedTask;
 }
